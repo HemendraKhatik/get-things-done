@@ -1,0 +1,49 @@
+{
+  "name": "get-things-done",
+  "version": "1.0.1",
+  "description": "Get things done",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HemendraKhatik/get-things-done.git"
+  },
+  "keywords": [
+    "get-things-done",
+    "react-components",
+    "react-component",
+    "react-component-library"
+  ],
+  "author": "Hemendra Khatik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HemendraKhatik/get-things-done/issues"
+  },
+  "homepage": "https://github.com/HemendraKhatik/get-things-done#readme",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.6",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-interactions": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/builder-webpack5": "^6.5.12",
+    "@storybook/manager-webpack5": "^6.5.12",
+    "@storybook/react": "^6.5.12",
+    "@storybook/testing-library": "^0.0.13",
+    "babel-loader": "^8.2.5",
+    "postcss": "^8.4.18",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+  }
+}
