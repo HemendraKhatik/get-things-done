@@ -1,12 +1,14 @@
 {
   "name": "get-things-done",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Get things done",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build-lib": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",
+    "@babel/preset-react": "^7.18.6",
+    "@rollup/plugin-node-resolve": "^15.0.0",
     "@storybook/addon-actions": "^6.5.12",
     "@storybook/addon-essentials": "^6.5.12",
     "@storybook/addon-interactions": "^6.5.12",
@@ -42,8 +46,12 @@
     "babel-loader": "^8.2.5",
     "postcss": "^8.4.18",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "rollup": "^3.2.3",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
