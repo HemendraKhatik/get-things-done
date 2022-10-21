@@ -1,7 +1,7 @@
 .tabs {
   width: 100%;
   display: flex;
-  gap: 36px;
+  gap: 20px;
   border-bottom: 1px solid #f0f1f5;
   scroll-snap-align: start;
 }

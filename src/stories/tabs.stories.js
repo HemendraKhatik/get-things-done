@@ -1,25 +1,27 @@
 import React, { useState } from "react";
-import { storiesOf } from "@storybook/react";
-
 import { Tab, TabPanel, Tabs } from "../components/Tabs";
 
-const stroies = storiesOf("GetThingsDone", module);
+export default {
+  title: "Tabs",
+  component: Tabs,
+};
 
-stroies.add("Tabs", () => {
+const Template = (args) => {
   const [activeTab, setActiveTab] = useState(0);
   const tabHandler = (val) => {
     setActiveTab(val);
   };
+
   return (
     <>
-      <Tabs activeTab={activeTab} tabHandler={tabHandler}>
-        <Tab label="All" index={0} />
-        <Tab label="Photos" index={1} />
-        <Tab label="Videos" index={2} />
+      <Tabs style={args.style} activeTab={activeTab} tabHandler={tabHandler}>
+        {args.tabs.map((label, index) => {
+          return <Tab key={index} label={label} index={index} />;
+        })}
       </Tabs>
 
       <TabPanel activeTab={activeTab} index={0}>
-       One
+        One
       </TabPanel>
       <TabPanel activeTab={activeTab} index={1}>
         Two
@@ -29,4 +31,11 @@ stroies.add("Tabs", () => {
       </TabPanel>
     </>
   );
-});
+};
+
+export const TabsComponent = Template.bind({});
+
+TabsComponent.args = {
+  tabs: ["Tab 1", "Tab 2", "Tab 3"],
+  style: { gap: 10 },
+};

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './index.module.css';
+import PropTypes from 'prop-types';
 
 function Tabs({ children,style,activeTab,tabHandler }) {
   const [tabs, setTabs] = useState([]);
@@ -7,7 +8,6 @@ function Tabs({ children,style,activeTab,tabHandler }) {
   useEffect(() => {
     try {
       const _tabs = children.map((child) => {
-          console.log(child.props);
         return child;
       });
       setTabs(_tabs);
@@ -23,7 +23,7 @@ function Tabs({ children,style,activeTab,tabHandler }) {
       })}
     </div>
   );
-}
+};
 
 const Tab = ({ children, label }) => {
   if (label) {
@@ -37,6 +37,21 @@ const TabPanel = ({ children,activeTab,index }) => {
         return children;
     }
     return;
+};
+
+Tabs.propTypes = {
+  style:PropTypes.object,
+  activeTab:PropTypes.number,
+  tabHandler:PropTypes.func,
+};
+
+Tab.propTypes = {
+  label:PropTypes.string,
+};
+
+TabPanel.propTypes = {
+  activeTab:PropTypes.number,
+  index:PropTypes.number,
 };
 
 export { Tabs, Tab, TabPanel };

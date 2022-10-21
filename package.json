@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build-lib": "rollup -c"
+    "build-lib": "rollup -c",
+    "chromatic": "npx chromatic --project-token=448576c2b297"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,9 @@
     "react-component",
     "react-component-library"
   ],
-  "author": "Hemendra Khatik",
+  "author": {
+    "name": "Hemendra Khatik"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/HemendraKhatik/get-things-done/issues"
@@ -44,7 +47,9 @@
     "@storybook/react": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
     "babel-loader": "^8.2.5",
+    "chromatic": "^6.10.4",
     "postcss": "^8.4.18",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^3.2.3",
@@ -53,5 +58,7 @@
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "readme": "ERROR: No README data found!",
+  "_id": "get-things-done@1.0.2"
 }
