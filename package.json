@@ -1,6 +1,6 @@
 {
   "name": "get-things-done",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Get things done",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -59,6 +59,5 @@
     "rollup-plugin-terser": "^7.0.2"
   },
   "dependencies": {},
-  "readme": "ERROR: No README data found!",
-  "_id": "get-things-done@1.0.2"
+  "readme": "ERROR: No README data found!"
 }
