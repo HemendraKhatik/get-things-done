@@ -1,0 +1,183 @@
+import { Meta, Story, Canvas, Source } from "@storybook/addon-docs";
+import { ExampleComponent, CustomSelectFileComp } from ".";
+import styles from "../index.module.css";
+
+<Meta title="Forms/UploadMedia" component={ExampleComponent} />
+
+# UploadMedia
+
+export const Template = (args) => <ExampleComponent args={args} />;
+
+```js
+import { UploadMedia } from "get-things-done";
+```
+
+# Props
+
+<table className={styles.customers}>
+  <tr>
+    <th>Props</th>
+    <th>Type</th>
+    <th>Required</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>multiple</td>
+    <td>boolean</td>
+    <td>No</td>
+    <td>true for multiple files</td>
+  </tr>
+  <tr>
+    <td>getFiles</td>
+    <td>function</td>
+    <td>Yes</td>
+    <td>
+      recieves seleted files data as an <span>`array`</span>
+    </td>
+  </tr>
+  <tr>
+    <td>draging</td>
+    <td>boolean</td>
+    <td>No</td>
+    <td>true for drag and drop feature</td>
+  </tr>
+  <tr>
+    <td>style</td>
+    <td>object</td>
+    <td>No</td>
+    <td>
+      Can pass <span>`style object`</span> to customize parent's CSS
+    </td>
+  </tr>
+  <tr>
+    <td>PlaceHolderComponent</td>
+    <td>react component</td>
+    <td>No</td>
+    <td>
+      It recieves two props <span>`deleteFile`</span> function which takes
+      file's <span>`id`</span> as an argument and <span>`files`</span> array.
+    </td>
+  </tr>
+</table>
+
+# Examples
+
+## Upload single media file
+
+<Canvas>
+  <Story
+    name="SelectSingleFile"
+    args={{
+      multiple: false,
+      draging: false,
+      getFiles: (files) => {
+        // You can iterate through files array and upload files one by one
+        console.log(files);
+      },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+```js
+export function ExampleComponent() {
+  return (
+    <UploadMedia
+      getFiles={(files) => {
+        // You can iterate through files array and upload files one by one
+        console.log(files);
+      }}
+    />
+  );
+}
+```
+
+## Upload single media file - custom component
+
+<Canvas>
+  <Story
+    name="SelectSingleFileCustom"
+    args={{
+      multiple: false,
+      draging: false,
+      getFiles: (files) => {
+        // You can iterate through files array and upload files one by one
+        console.log(files);
+      },
+      PlaceHolderComponent: CustomSelectFileComp,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+```js
+export function ExampleComponent() {
+  return (
+    <UploadMedia
+      multiple={false}
+      getFiles={(files) => {
+        // You can iterate through files array and upload files one by one
+        console.log(files);
+      }}
+      PlaceHolderComponent={({ files, deleteFile }) => {
+        const fileHandler = (e, id) => {
+          e.stopPropagation();
+          deleteFile(id);
+        };
+        return (
+          <div className={styles.customComp}>
+            {files.length === 0 ? (
+              <span>Select file to upload</span>
+            ) : (
+              <>
+                <img width={20} height={20} src={files[0].url}/>
+                <span>{files[0].name}</span>
+                <span onClick={(e) => fileHandler(e, files[0].id)}>x</span>
+              </>
+            )}
+          </div>
+        );
+      }}
+    />
+  );
+}
+```
+
+
+## Upload multiple media files - Drag And Drop 
+
+<Canvas>
+  <Story
+    name="DragAndDropFiles"
+    args={{
+      multiple: true,
+      draging: true,
+      style: { minHeight: 200 },
+      getFiles: (files) => {
+        // You can iterate through files array and upload files one by one
+        console.log(files);
+      },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+```js
+import { UploadMedia } from "get-things-done";
+
+export function ExampleComponent() {
+  return (
+    <UploadMedia
+      multiple={true}
+      draging={true}
+      getFiles={(files) => {
+        // You can iterate through files array and upload files one by one
+        console.log(files);
+      }}
+    />
+  );
+}
+```

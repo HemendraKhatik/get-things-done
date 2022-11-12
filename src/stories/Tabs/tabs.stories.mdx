@@ -1,0 +1,231 @@
+import { Meta, Story, Canvas, Source } from "@storybook/addon-docs";
+import { ExampleTabs,ExampleTabs2, IconOne,IconTwo,IconThree } from ".";
+import styles from "../index.module.css";
+
+<Meta title="Navigation/Tabs" component={ExampleTabs} />
+
+# Tabs component
+
+### It's a higher order component which takes Tab componets as children and allows you to navigate between groups of content.
+
+# Props
+
+<table className={styles.customers}>
+  <tr>
+    <th>Props</th>
+    <th>Type</th>
+    <th>Required</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>activeTab</td>
+    <td>number</td>
+    <td>Yes</td>
+    <td>Current active tab</td>
+  </tr>
+  <tr>
+    <td>tabHandler</td>
+    <td>function</td>
+    <td>No</td>
+    <td>Current activeTab handler</td>
+  </tr>
+  <tr>
+    <td>style</td>
+    <td>object</td>
+    <td>No</td>
+    <td>
+      Can pass <span>`style object`</span> to customize <span>`tabs`</span>{" "}
+      appearance
+    </td>
+  </tr>
+  <tr>
+    <td>indicatorColor</td>
+    <td>string</td>
+    <td>No</td>
+    <td>
+      Current <span>`activeTab indicator`</span> color default is{" "}
+      <span>`#4285fa`</span>
+    </td>
+  </tr>
+  <tr>
+    <td>activeTabStyle</td>
+    <td>object</td>
+    <td>No</td>
+    <td>
+      Can pass <span>`style object`</span> to customize <span>`activeTab`</span>{" "}
+      appearance.
+    </td>
+  </tr>
+  <tr>
+    <td>deActiveTabStyle</td>
+    <td>object</td>
+    <td>No</td>
+    <td>
+      Can pass <span>`style object`</span> to customize{" "}
+      <span>`deActiveTabs`</span> appearance.
+    </td>
+  </tr>
+</table>
+
+export const Template = (args) => <ExampleTabs args={args} />;
+
+<Canvas>
+  <Story
+    name="Basic"
+    args={{
+      tabs: ["Tab 1", "Tab 2", "Tab 3"],
+      style: { gap: 10, padding: 5 },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+```
+import { Tab, TabPanel, Tabs } from "get-things-done";
+```
+
+```js
+const ExampleTabs = () => {
+  const [activeTab, setActiveTab] = useState(0);
+  const tabHandler = (val) => {
+    setActiveTab(val);
+  };
+
+  return (
+    <>
+      <Tabs activeTab={activeTab} tabHandler={tabHandler}>
+        <Tab label="tab 1" index={0} />
+        <Tab label="tab 2" index={1} />
+        <Tab label="tab 3" index={2} />
+      </Tabs>
+
+      <TabPanel activeTab={activeTab} index={0}>
+        One
+      </TabPanel>
+      <TabPanel activeTab={activeTab} index={1}>
+        Two
+      </TabPanel>
+      <TabPanel activeTab={activeTab} index={2}>
+        Three
+      </TabPanel>
+    </>
+  );
+};
+```
+
+<Canvas>
+  <Story
+    name="Customized"
+    args={{
+      tabs: ["Tab 1", "Tab 2", "Tab 3"],
+      style: {
+        gap: 10,
+        padding: 10,
+        backgroundColor: "#000000",
+        color: "#ffffff",
+      },
+      indicatorColor: "red",
+      activeTabStyle: {
+        color: "#f2f2f2",
+      },
+      deActiveTabStyle: {
+        color: "gray",
+      },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+```js
+const ExampleTabs = () => {
+  const [activeTab, setActiveTab] = useState(0);
+  const tabHandler = (val) => {
+    setActiveTab(val);
+  };
+
+  return (
+    <>
+      <Tabs
+        style={ gap: 10, padding:10, backgroundColor:"#000000", color:"#ffffff" }
+        indicatorColor="red"
+        activeTabStyle={color:'#f2f2f2'}
+        deActiveTabStyle={color:'gray'}
+        activeTab={activeTab}
+        tabHandler={tabHandler}>
+        <Tab label="tab 1" index={0} />
+        <Tab label="tab 2" index={1} />
+        <Tab label="tab 3" index={2} />
+      </Tabs>
+
+      <TabPanel activeTab={activeTab} index={0}>
+        One
+      </TabPanel>
+      <TabPanel activeTab={activeTab} index={1}>
+        Two
+      </TabPanel>
+      <TabPanel activeTab={activeTab} index={2}>
+        Three
+      </TabPanel>
+    </>
+  );
+};
+```
+
+export const Template2 = (args) => <ExampleTabs2 args={args} />;
+
+<Canvas>
+  <Story
+    name="TabsWithICons"
+    args={{
+      tabs: [<IconOne/>, <IconTwo/>, <IconThree/>],
+      style: {
+        gap: 10,
+        padding: 10,
+        backgroundColor: "#000000",
+        color: "#ffffff",
+      },
+    }}>
+    {Template2.bind({})}
+  </Story>
+</Canvas>
+
+
+```js
+const ExampleTabs = () => {
+  const [activeTab, setActiveTab] = useState(0);
+  const tabHandler = (val) => {
+    setActiveTab(val);
+  };
+
+  return (
+    <>
+      <Tabs
+        style={ gap: 10, padding:10, backgroundColor:"#000000", color:"#ffffff" }
+        activeTab={activeTab}
+        tabHandler={tabHandler}>
+        <Tab index={0}>
+          <HomeIcon/> {/* --> or we can use any JSX here*/}
+        </Tab>
+        <Tab index={1}>
+          <AboutIcon/> {/* --> or we can use any JSX here*/}
+        </Tab>
+        <Tab index={2}>
+          <ContactIcon/> {/* --> or we can use any JSX here*/}
+        </Tab>
+      </Tabs>
+
+      <TabPanel activeTab={activeTab} index={0}>
+        One
+      </TabPanel>
+      <TabPanel activeTab={activeTab} index={1}>
+        Two
+      </TabPanel>
+      <TabPanel activeTab={activeTab} index={2}>
+        Three
+      </TabPanel>
+    </>
+  );
+};
+```
