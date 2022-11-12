@@ -31,7 +31,8 @@
   "homepage": "https://github.com/HemendraKhatik/get-things-done#readme",
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "prop-types": "^15.8.1"
   },
   "devDependencies": {
     "@alfalab/icons-glyph": "^2.76.0",
@@ -53,7 +54,6 @@
     "babel-loader": "^8.2.5",
     "chromatic": "^6.10.4",
     "postcss": "^8.4.18",
-    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-live": "^3.1.1",
@@ -64,6 +64,8 @@
     "rollup-plugin-terser": "^7.0.2",
     "storybook-addon-live-examples": "^1.0.5"
   },
-  "dependencies": {},
+  "dependencies": {
+    "rollup-plugin-svg": "^2.0.0"
+  },
   "readme": "ERROR: No README data found!"
 }

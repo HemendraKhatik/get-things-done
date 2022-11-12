@@ -148,10 +148,10 @@ const ExampleTabs = () => {
   return (
     <>
       <Tabs
-        style={ gap: 10, padding:10, backgroundColor:"#000000", color:"#ffffff" }
+        style={{ gap: 10, padding:10, backgroundColor:"#000000", color:"#ffffff" }}
         indicatorColor="red"
-        activeTabStyle={color:'#f2f2f2'}
-        deActiveTabStyle={color:'gray'}
+        activeTabStyle={{color:'#f2f2f2'}}
+        deActiveTabStyle={{color:'gray'}}
         activeTab={activeTab}
         tabHandler={tabHandler}>
         <Tab label="tab 1" index={0} />
@@ -202,7 +202,7 @@ const ExampleTabs = () => {
   return (
     <>
       <Tabs
-        style={ gap: 10, padding:10, backgroundColor:"#000000", color:"#ffffff" }
+        style={{ gap: 10, padding:10, backgroundColor:"#000000", color:"#ffffff"}}
         activeTab={activeTab}
         tabHandler={tabHandler}>
         <Tab index={0}>
