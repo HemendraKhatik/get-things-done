@@ -1,0 +1,60 @@
+import { Meta, Story, Canvas, Source } from "@storybook/addon-docs";
+import { ExampleComponent, CustomSelectFileComp } from ".";
+import styles from "../index.module.css";
+
+<Meta title="Navigation/Steps" component={ExampleComponent} />
+
+# Steps
+
+export const Template = (args) => <ExampleComponent args={args} />;
+
+<Canvas>
+  <Story name="BasicSteps">
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+```js
+
+import React, {useRef } from "react";
+import { Step, Steps, Button } from "get-things-done";
+import styles from "../index.module.css";
+
+export function ExampleComponent() {
+
+  const childRef = useRef(null);
+
+  const goBack = () => childRef.current.goBack();
+
+  const goNext = () => childRef.current.goNext();
+
+  const finish = ()=>{
+    alert("Do something magical")
+    goNext();
+  }
+  return (
+    <Steps ref={childRef}>
+      <Step>
+        <div style={{ height: 100,backgroundColor: "#f2f2f2",padding:20 }}>
+          <p>Step one</p>
+          <Button type="fill" onClick={goNext}>Next</Button>
+        </div>
+      </Step>
+      <Step>
+        <div style={{ height: 100, backgroundColor: "#f2f2f2",padding:20 }}>
+          <p>Step Two</p>
+          <Button type="fill" onClick={goNext}>Next</Button>
+          <Button onClick={goBack}>Back</Button>
+        </div>
+      </Step>
+      <Step>
+        <div style={{ height: 100, backgroundColor: "#f2f2f2",padding:20 }}>
+          <p>Step Three</p>
+          <Button type="fill" onClick={finish}>Finish</Button>
+          <Button onClick={goBack}>Back</Button>
+        </div>
+      </Step>
+    </Steps>
+  );
+}
+```

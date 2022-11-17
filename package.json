@@ -1,6 +1,6 @@
 {
   "name": "get-things-done",
-  "version": "1.1.6",
+  "version": "1.2.6",
   "description": "Get things done",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -19,7 +19,14 @@
     "get-things-done",
     "react-components",
     "react-component",
-    "react-component-library"
+    "react-component-library",
+    "drag-and-drop",
+    "upload-media-drag-and-drop",
+    "steps-form",
+    "steps",
+    "react-steps",
+    "react-tab",
+    "tabs"
   ],
   "author": {
     "name": "Hemendra Khatik"
@@ -30,9 +37,9 @@
   },
   "homepage": "https://github.com/HemendraKhatik/get-things-done#readme",
   "peerDependencies": {
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "prop-types": "^15.8.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@alfalab/icons-glyph": "^2.76.0",
@@ -65,6 +72,7 @@
     "storybook-addon-live-examples": "^1.0.5"
   },
   "dependencies": {
+    "classnames": "^2.3.2",
     "rollup-plugin-svg": "^2.0.0"
   },
   "readme": "ERROR: No README data found!"

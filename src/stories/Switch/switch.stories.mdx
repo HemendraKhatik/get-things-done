@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas, Source } from "@storybook/addon-docs";
+import { ExampleComponent, CustomSelectFileComp } from ".";
+import styles from "../index.module.css";
+
+<Meta title="Inputs/Switch" component={ExampleComponent} />
+
+# Steps
+
+export const Template = (args) => <ExampleComponent args={args} />;
+
+<Canvas>
+  <Story name="Switch">
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+```js
+import React, { useState } from "react";
+import { Switch } from "get-things-done";
+
+export function ExampleComponent() {
+  const [checked, setChecked] = useState(false);
+  const onChange = ()=>setChecked(!checked);
+  return <Switch onChange={onChange} checked={checked}/>
+}
+
+```

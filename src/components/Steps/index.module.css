@@ -1,0 +1,23 @@
+.steps{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.steps div:nth-child(odd){
+    width:34px;
+    height: 34px;
+    margin-left: -2px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.steps div:nth-child(odd):hover{
+    opacity: 0.8;
+}
+
+.steps div:nth-child(even){
+    width:100px;
+    height: 4px;
+    background-color: #3B7DED;
+}
